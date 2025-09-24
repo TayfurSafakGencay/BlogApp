@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Safak\\RiderProjects\\BlogApp\\BlogApp\\BlogApp\\BlogApp.csproj": {}
+    "C:\\Users\\Safak\\RiderProjects\\BlogApp\\BlogApp\\BlogApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Safak\\RiderProjects\\BlogApp\\BlogApp\\BlogApp\\BlogApp.csproj": {
+    "C:\\Users\\Safak\\RiderProjects\\BlogApp\\BlogApp\\BlogApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Safak\\RiderProjects\\BlogApp\\BlogApp\\BlogApp\\BlogApp.csproj",
+        "projectUniqueName": "C:\\Users\\Safak\\RiderProjects\\BlogApp\\BlogApp\\BlogApp.csproj",
         "projectName": "BlogApp",
-        "projectPath": "C:\\Users\\Safak\\RiderProjects\\BlogApp\\BlogApp\\BlogApp\\BlogApp.csproj",
+        "projectPath": "C:\\Users\\Safak\\RiderProjects\\BlogApp\\BlogApp\\BlogApp.csproj",
         "packagesPath": "C:\\Users\\Safak\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Safak\\RiderProjects\\BlogApp\\BlogApp\\BlogApp\\obj\\",
+        "outputPath": "C:\\Users\\Safak\\RiderProjects\\BlogApp\\BlogApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Safak\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -37,6 +37,18 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[9.0.9, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

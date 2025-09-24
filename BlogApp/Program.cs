@@ -1,9 +1,25 @@
-var builder = WebApplication.CreateBuilder(args);
+using BlogApp.Data.Abstract;
+using BlogApp.Data.Concrete.EfCore;
+using Microsoft.EntityFrameworkCore;
+
+WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-var app = builder.Build();
+builder.Services.AddDbContext<BlogContext>(options =>
+{
+	ConfigurationManager config = builder.Configuration;
+	string? connectionString = config.GetConnectionString("sql_connection");
+	options.UseSqlite(connectionString);
+});
+
+builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IPostRepository, EfPostRepository>();
+
+WebApplication app = builder.Build();
+
+SeedData.FillTestData(app);
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
