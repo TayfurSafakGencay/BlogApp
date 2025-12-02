@@ -61,6 +61,7 @@ public static class SeedData
 				PublishedOn = DateTime.Now.AddDays(-20),
 				IsActive = true,
 				UserId = 1,
+				Image = "1.jpg",
 				Tags = context.Tags.Take(3).ToList()
 			},
 			new Post
@@ -70,6 +71,7 @@ public static class SeedData
 				PublishedOn = DateTime.Now.AddDays(-10),
 				IsActive = true,
 				UserId = 2,
+				Image = "2.jpg",
 				Tags = context.Tags.Skip(1).Take(2).ToList()
 			},
 			new Post
@@ -79,6 +81,7 @@ public static class SeedData
 				PublishedOn = DateTime.Now.AddDays(-5),
 				IsActive = false,
 				UserId = 3,
+				Image = "3.jpg",
 				Tags = context.Tags.Skip(1).Take(3).ToList()
 			}
 		);
