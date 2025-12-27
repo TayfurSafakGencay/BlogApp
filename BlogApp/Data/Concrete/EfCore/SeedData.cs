@@ -27,11 +27,11 @@ public static class SeedData
 		if (context.Tags.Any()) return;
 		
 		context.Tags.AddRange(
-			new Tag { Text = "Web Programming" },
-			new Tag { Text = "Backend" },
-			new Tag { Text = "Frontend" },
-			new Tag { Text = "Fullstack" },
-			new Tag { Text = "Php" }
+			new Tag { Text = "Web Programming", Url = "web-programming" },
+			new Tag { Text = "Backend", Url = "backend" },
+			new Tag { Text = "Frontend", Url = "frontend" },
+			new Tag { Text = "Fullstack", Url = "fullstack" },
+			new Tag { Text = "Php", Url = "php" }
 		);
 		context.SaveChanges();
 	}
@@ -56,8 +56,9 @@ public static class SeedData
 		context.Posts.AddRange(
 			new Post
 			{
-				Title = "First Post",
-				Content = "This is the content of the first post.",
+				Title = "Asp.Net Core",
+				Content = "Asp.Net Core is a cross-platform, high-performance framework for building modern, cloud-based, Internet-connected applications.",
+				Url = "aspnet-core",
 				PublishedOn = DateTime.Now.AddDays(-20),
 				IsActive = true,
 				UserId = 1,
@@ -66,8 +67,9 @@ public static class SeedData
 			},
 			new Post
 			{
-				Title = "Second Post",
-				Content = "This is the content of the second post.",
+				Title = "PHP Basics",
+				Content = "PHP is a popular general-purpose scripting language that is especially suited to web development.",
+				Url = "php",
 				PublishedOn = DateTime.Now.AddDays(-10),
 				IsActive = true,
 				UserId = 2,
@@ -76,9 +78,43 @@ public static class SeedData
 			},
 			new Post
 			{
-				Title = "Third Post",
-				Content = "This is the content of the third post.",
+				Title = "Django Framework",
+				Content = "Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design.",
+				Url = "django",
 				PublishedOn = DateTime.Now.AddDays(-5),
+				IsActive = false,
+				UserId = 3,
+				Image = "3.jpg",
+				Tags = context.Tags.Skip(1).Take(3).ToList()
+			},
+			new Post
+			{
+				Title = "React",
+				Content = "React is a JavaScript library for building user interfaces.",
+				Url = "react-courses",
+				PublishedOn = DateTime.Now.AddDays(-35),
+				IsActive = false,
+				UserId = 3,
+				Image = "3.jpg",
+				Tags = context.Tags.Skip(1).Take(3).ToList()
+			},
+			new Post
+			{
+				Title = "Angular",
+				Content = "Angular is a platform for building mobile and desktop web applications.",
+				Url = "angular",
+				PublishedOn = DateTime.Now.AddDays(-43),
+				IsActive = false,
+				UserId = 3,
+				Image = "3.jpg",
+				Tags = context.Tags.Skip(1).Take(3).ToList()
+			},
+			new Post
+			{
+				Title = "Vue.js",
+				Content = "Vue.js is a progressive framework for building user interfaces.",
+				Url = "vuejs",
+				PublishedOn = DateTime.Now.AddDays(-17),
 				IsActive = false,
 				UserId = 3,
 				Image = "3.jpg",
