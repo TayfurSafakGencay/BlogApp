@@ -1,4 +1,5 @@
 ﻿using BlogApp.Data.Abstract;
+using BlogApp.Entity;
 using BlogApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -17,12 +18,18 @@ public class PostsController : Controller
 		_tagRepository = tagRepository;
 	}
 	
-	public IActionResult Index()
+	public async Task<IActionResult> Index(string tag)
 	{
+		IQueryable<Post> posts = _postRepository.Posts;
+
+		if (!string.IsNullOrEmpty(tag))
+		{
+			posts = posts.Where(x => x.Tags.Any(t => t.Url == tag));
+		}
+		
 		PostsViewModel viewModel = new()
 		{
-			Posts = _postRepository.Posts.ToList(),
-			Tags = _tagRepository.Tags.ToList()
+			Posts = await posts.ToListAsync()
 		};
 		
 		return View(viewModel);
