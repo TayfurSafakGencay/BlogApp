@@ -27,11 +27,11 @@ public static class SeedData
 		if (context.Tags.Any()) return;
 		
 		context.Tags.AddRange(
-			new Tag { Text = "Web Programming", Url = "web-programming" },
-			new Tag { Text = "Backend", Url = "backend" },
-			new Tag { Text = "Frontend", Url = "frontend" },
-			new Tag { Text = "Fullstack", Url = "fullstack" },
-			new Tag { Text = "Php", Url = "php" }
+			new Tag { Text = "Web Programming", Url = "web-programming", Color = TagColor.warning},
+			new Tag { Text = "Backend", Url = "backend", Color = TagColor.danger },
+			new Tag { Text = "Frontend", Url = "frontend", Color = TagColor.info },
+			new Tag { Text = "Fullstack", Url = "fullstack", Color = TagColor.success },
+			new Tag { Text = "Php", Url = "php", Color = TagColor.primary }
 		);
 		context.SaveChanges();
 	}
