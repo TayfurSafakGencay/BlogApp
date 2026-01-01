@@ -41,10 +41,8 @@ public static class SeedData
 		if (context.Users.Any()) return;
 		
 		context.Users.AddRange(
-			new User { Username = "Alice"},
-			new User { Username = "John"},
-			new User { Username = "Jane"},
-			new User { Username = "Doe"}
+			new User { Username = "Alice", Image = "p1.png"},
+			new User { Username = "John", Image = "p2.png"}
 		);
 		context.SaveChanges();
 	}
@@ -63,7 +61,12 @@ public static class SeedData
 				IsActive = true,
 				UserId = 1,
 				Image = "1.jpg",
-				Tags = context.Tags.Take(3).ToList()
+				Tags = context.Tags.Take(3).ToList(),
+				Comments = new List<Comment>
+				{
+					new() { Text = "It is a good course.", PublishedOn = new DateTime(), UserId = 1},
+					new() {Text = "Perfect Course", PublishedOn = new DateTime(), UserId = 2}
+				} 
 			},
 			new Post
 			{
@@ -83,7 +86,7 @@ public static class SeedData
 				Url = "django",
 				PublishedOn = DateTime.Now.AddDays(-5),
 				IsActive = false,
-				UserId = 3,
+				UserId = 2,
 				Image = "3.jpg",
 				Tags = context.Tags.Skip(1).Take(3).ToList()
 			},
@@ -94,7 +97,7 @@ public static class SeedData
 				Url = "react-courses",
 				PublishedOn = DateTime.Now.AddDays(-35),
 				IsActive = false,
-				UserId = 3,
+				UserId = 1,
 				Image = "3.jpg",
 				Tags = context.Tags.Skip(1).Take(3).ToList()
 			},
@@ -105,7 +108,7 @@ public static class SeedData
 				Url = "angular",
 				PublishedOn = DateTime.Now.AddDays(-43),
 				IsActive = false,
-				UserId = 3,
+				UserId = 2,
 				Image = "3.jpg",
 				Tags = context.Tags.Skip(1).Take(3).ToList()
 			},
@@ -116,7 +119,7 @@ public static class SeedData
 				Url = "vuejs",
 				PublishedOn = DateTime.Now.AddDays(-17),
 				IsActive = false,
-				UserId = 3,
+				UserId = 1,
 				Image = "3.jpg",
 				Tags = context.Tags.Skip(1).Take(3).ToList()
 			}
