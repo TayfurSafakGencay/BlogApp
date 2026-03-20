@@ -32,6 +32,25 @@
                             </div>
                         </div>
                     }
+                    <hr class="my-4"/>
+                    <div>
+                        <h4 class="mb-3">Add Comment</h4>
+                        <form action="/posts/AddComment" method="post">
+                            <input type="hidden" name="PostId" value="@Model.Id">
+                            <div class="mb-3">
+                                <label for="UserName" class="form-label">User Name</label>
+                                <input type="text" name="UserName" id="UserName" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="Text" class="form-label">Comment</label>
+                                <textarea type="text" name="Text" id="Text" rows="3" class="form-control"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <button type="submit" class="btn btn-success">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                    
                 </div>
             </div>
         </div>

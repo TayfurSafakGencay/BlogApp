@@ -1,4 +1,5 @@
-﻿using BlogApp.Data.Abstract;
+﻿using System.Diagnostics;
+using BlogApp.Data.Abstract;
 using BlogApp.Entity;
 using BlogApp.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -43,5 +44,11 @@ public class PostsController : Controller
 			.Include(c => c.Comments)
 			.ThenInclude(u => u.User)
 			.FirstOrDefaultAsync(p => p.Url == url));
+	}
+
+	public IActionResult AddComment(int postId, string UserName, string Text)
+	{
+		Debug.Print($"AddComment {postId} {UserName} {Text}");
+		return View(null);
 	}
 }
